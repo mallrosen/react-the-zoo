@@ -12,7 +12,7 @@ export const ShowAnimals = ({animals}:IAnimalsProps) => {
     return (
     <>
     {animals.map((animal)=>{
-        return <ShowAnimal animal={animal}/>
+        return <ShowAnimal key={animal.id} animal={animal}/>
     })}
     </>
     )

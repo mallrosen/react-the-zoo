@@ -16,7 +16,7 @@ const handleShowDetails = () =>{
 
     return (
     <>
-        <div key={animal.id}>
+        <div>
             <h2>{animal.name}</h2>
             <img src={animal.imageUrl} alt={animal.shortDescription} />
             <p>{animal.shortDescription}</p>

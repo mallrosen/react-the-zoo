@@ -4,11 +4,7 @@ export interface IAnimal {
     shortDescription: string,
     imageUrl: string,
     isFed: boolean,
-    lastFed: string
-}
-
-
-export interface IAnimalExt extends IAnimal {
+    lastFed: string,
     latinName: string,
     yearOfBirth: number,
     longDescription: string,
