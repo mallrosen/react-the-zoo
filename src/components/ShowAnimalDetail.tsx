@@ -15,9 +15,10 @@ interface IShowAnimalDetailsProps {
       <h1></h1>
         <Link to={"/animals"}>Tillbaka</Link>
         <h3>{animal.name}</h3>
-        <p>{animal.longDescription}</p>
         <img src={animal.imageUrl} alt={animal.latinName} />
-        <button onClick={getTime}>Mata</button>
+        <p>{animal.longDescription}</p>
+        <h3> {animal.name} matades senast: {animal.lastFed}</h3>
+        <button onClick={getTime} disabled={animal.isFed}>Mata</button>
       </>
     );
   };

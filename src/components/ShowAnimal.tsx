@@ -18,9 +18,8 @@ const handleShowDetails = () =>{
     <>
         <div>
             <h2>{animal.name}</h2>
-            <img src={animal.imageUrl} alt={animal.shortDescription} />
+            <img src={animal.imageUrl} alt={animal.shortDescription} onClick={handleShowDetails}/>
             <p>{animal.shortDescription}</p>
-            <button onClick={handleShowDetails}>Mer info + mata</button>
         </div>
     </>
 )
