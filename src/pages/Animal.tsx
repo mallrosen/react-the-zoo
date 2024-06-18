@@ -14,21 +14,45 @@ export const Animal = () => {
 
     const currentAnimal = animalsFromLs.find(animal => animal.id.toString() === paramsId);
 
-    // const [animalToFeed, setAnimalToFeed] = useState(currentAnimal)
 
     const [animalsStateFromLs, setAnimalsStateFromLs] = useState<IAnimal[]>(animalsFromLs)
+    // const [animalToFeed, setAnimalToFeed] = useState<IAnimal>()
 
 
+    useEffect(()=>{
+
+
+
+        if(currentAnimal){
+        const timeNow = DateTime.now()
+        const feedingTime = DateTime.fromISO(currentAnimal.lastFed)
+        
+        const timeToFeed = feedingTime.plus({minutes: 1})
+
+
+        if(timeNow > timeToFeed){
+        
+        const foodTimeList = animalsStateFromLs.map((a)=>{
+            if(a.id === currentAnimal?.id){
+                return {...a, isFed: false}
+            } else { return a }
+        })
+        localStorage.setItem("Animals", JSON.stringify(foodTimeList))
+        setAnimalsStateFromLs(foodTimeList)
+    }}     
+}, [animalsStateFromLs, currentAnimal])
+        
 
 const getTime = () =>{
 
         const time = DateTime.now() 
-        const formatTime = time.toFormat("yyyy-MM-dd HH:mm")
+        const feedTime = time.toISO()
+        // const formatTime = time.toFormat("yyyy-MM-dd HH:mm")
 
 
-        const change = animalsFromLs.map((a)=>{
+        const change = animalsStateFromLs.map((a)=>{
         if(a.id === currentAnimal?.id){
-            return {...a, lastFed: formatTime, isFed: true} 
+            return {...a, lastFed: feedTime, isFed: true} 
         } else { return a}
 
 })
@@ -38,60 +62,6 @@ setAnimalsStateFromLs(change)
 console.log(animalsStateFromLs);
 }
 
-
-useEffect(()=>{
-    // const timeNow = new Date()
-    // const timeNowMinutes = timeNow.getHours() * 60 + timeNow.getMinutes()
-    // console.log(timeNowMinutes);
-    
-    // const feedTime = currentAnimal?.lastFed
-
-    // if(feedTime){
-    // const [hours, minutes] = feedTime.split(':').map(Number);
-    // const feedTimeMinutes = hours * 60 + minutes;
-
-
-    // console.log(feedTimeMinutes);
-
-    // if(feedTimeMinutes + 240 > timeNowMinutes)
-    //     console.log("Du lyckas");
-        
-
-    // }
-
-
-
-    const timeNow = DateTime.now().toISODate()
-    // .toLocaleString(DateTime.DATETIME_SHORT);
-    console.log(timeNow);
-    
-
-    if(currentAnimal){
-    const timeFed = DateTime.fromISO(currentAnimal?.lastFed)
-    // .toLocaleString(DateTime.DATETIME_SHORT);
-    // console.log(timeFed);
-
-    // const DiffTime = DateTime.fromISO(timeNow).diff(DateTime.fromISO(timeFed), 'hours')
-
-    const timeDiff = timeNow.diff(timeFed, 'hours')
-
-    timeDiff.toObject()
-
-    console.log(timeDiff.hours)
-
-
-
-
-
-    // console.log(DiffTime.hours);
-
-
-    
-    
-    }
-
-
-})
 
  
     return (

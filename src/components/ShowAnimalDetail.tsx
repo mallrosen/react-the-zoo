@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
+
 interface IShowAnimalDetailsProps {
     animal: IAnimal;
     getTime: ()=> void;
   }
+
+
   
   export const ShowAnimalDetails = ({ animal, getTime }: IShowAnimalDetailsProps) => {
 
-  
+
   
   
     return (
