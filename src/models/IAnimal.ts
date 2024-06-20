@@ -10,3 +10,7 @@ export interface IAnimal {
     longDescription: string,
     medicine: string,
 }
+
+export interface IAnimalExt extends IAnimal {
+    needFood: boolean,
+}

@@ -15,11 +15,11 @@ const animalsFromLs: IAnimal[] = JSON.parse(localStorage.getItem("Animals") || "
 
 const [animalToFeed, setAnimalToFeed] = useState<IAnimal>(animal)
 
+
 const currentAnimal = animalsFromLs.find(animal => animal.id.toString() === paramsId);
 
 
 const getTime = () => {
-
     
     const time = DateTime.now() 
     const feedTime = time.toISO()
@@ -32,6 +32,8 @@ const getTime = () => {
 }}
 
 const saveAnimalList = (animal:IAnimal) =>{
+
+    
     const getAnimal = JSON.parse(localStorage.getItem("Animals") || "[]")
 
     const change = getAnimal.map((a: IAnimal)=>{
@@ -54,6 +56,8 @@ useEffect(()=>{
         
         const timeToFeed = feedingTime.plus({minutes: 1})
 
+        // const feedNow = feedingTime.plus({minutes: 2})
+
 
         if(timeNow > timeToFeed){
         
@@ -72,6 +76,7 @@ const formatTime = DateTime.fromISO(animalToFeed.lastFed).toLocaleString(DateTim
 
 return (
     <>
+
     <h3> {animalToFeed.name} matades senast: {formatTime}</h3>
     {!animalToFeed.isFed ? <button onClick={getTime} disabled={animalToFeed.isFed}>Mata</button> : <button onClick={getTime} disabled={animalToFeed.isFed}>Redan matad</button> }
     </>

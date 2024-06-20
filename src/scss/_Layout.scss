@@ -1,0 +1,24 @@
+header{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: bisque;
+
+
+.navBar ul{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-right: 80px;
+  gap: 70px;
+  font-size: 40px;
+  list-style-type: none;
+
+  li a{
+    color: #000;
+  }
+  }
+}
+
+

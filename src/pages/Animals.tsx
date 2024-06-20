@@ -3,6 +3,7 @@ import { IAnimal } from "../models/IAnimal"
 
 import { ShowAnimals } from "../components/ShowAnimals"
 import { getAnimals } from "../services/animalsService"
+import '../scss/_Animals.scss'
 
 export const Animals = () => {
     
@@ -15,6 +16,7 @@ const getData = async () =>{
     localStorage.setItem("Animals", JSON.stringify(theZoo))
     setAnimalState(theZoo)
 }
+
 
 
 
@@ -34,7 +36,6 @@ useEffect(()=>{
 
     return(
     <>
-    <h1>Djuren</h1>
     <ShowAnimals animals={animalState} />
     </>
     )

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal";
 import { ShowAnimalDetails } from "../components/ShowAnimalDetail";
-
+import '../scss/_Animal.scss'
 
 
 export const Animal = () => {
@@ -13,12 +13,7 @@ export const Animal = () => {
 
     const currentAnimal = animalsFromLs.find(animal => animal.id.toString() === paramsId);
 
-
-
-
-        
-
-
+    
  
     return (
         <>

@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
+import '../scss/_Layout.scss'
 
 export const Layout = () => {
     return (
       <>
         <header>
-          <nav>
+          <nav className="navBar">
             <ul>
               <li>
                 <NavLink to={"/"}>Hem</NavLink>
@@ -18,7 +19,6 @@ export const Layout = () => {
         <main>
           <Outlet />
         </main>
-        <footer></footer>
       </>
     );
   };
