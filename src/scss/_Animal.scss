@@ -8,13 +8,15 @@ justify-content: center;
 button{
     width: 200px;
     height: 40px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: bisque;
+    font-size: 25px;
 
     a{
-        font-size: 25px;
+        text-decoration: inherit;
         color: black;
     }
 }

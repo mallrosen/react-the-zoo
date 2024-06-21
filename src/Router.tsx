@@ -3,6 +3,7 @@ import { Layout } from "./pages/Layout";
 import { Animals } from "./pages/Animals";
 import { Home } from "./pages/Home";
 import { Animal } from "./pages/Animal";
+import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
     {
@@ -14,13 +15,14 @@ export const router = createBrowserRouter([
                 element: <Home/>   
                },
             {
-             path: "/animals",
-             element: <Animals/>   
+                path: "/animals",
+                element: <Animals/>   
             },
             {
                 path:"/animals/:paramsId",
                 element: <Animal/>
             }
-        ]
+        ],
+        errorElement: <NotFound/>
     }
 ])
