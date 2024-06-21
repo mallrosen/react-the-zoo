@@ -6,11 +6,7 @@ import '../scss/_Animal.scss'
 
 export const Animal = () => {
     const { paramsId } = useParams()
-
-
     const animalsFromLs: IAnimal[] = JSON.parse(localStorage.getItem("Animals") || "[]")
-
-
     const currentAnimal = animalsFromLs.find(animal => animal.id.toString() === paramsId);
 
     

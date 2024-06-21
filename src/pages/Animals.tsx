@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { IAnimal } from "../models/IAnimal"
-
 import { ShowAnimals } from "../components/ShowAnimals"
 import { getAnimals } from "../services/animalsService"
 import '../scss/_Animals.scss'
@@ -30,7 +29,7 @@ useEffect(()=>{
     catch{
         console.log('error');
         }
-}, [animalState])
+})
 
 
 

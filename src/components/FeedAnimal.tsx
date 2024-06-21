@@ -30,7 +30,7 @@ export const FeedAnimal = ({ animal }: IFeedAnimalProps) => {
 
         const change = animalsFromLs.map((a: IAnimal) => {
           if (a.id === animal.id) {
-            return { ...animal };
+            return { ...currentAnimal, isFed: true, lastFed: feedTime };
           }
           return a;
         });
@@ -69,7 +69,6 @@ export const FeedAnimal = ({ animal }: IFeedAnimalProps) => {
   return (
     <>
       <h3>
-        {" "}
         {animalToFeed.name} matades senast: {formatTime}
       </h3>
       {!animalToFeed.isFed ? (

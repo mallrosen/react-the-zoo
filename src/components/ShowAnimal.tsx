@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { IAnimal } from "../models/IAnimal"
-import { imgError } from "../services/imgService"
+import { useImgError }  from '../hooks/useImgError'
 
 
 interface IShowAnimals {
@@ -22,7 +22,7 @@ const handleShowDetails = () =>{
     <>    
         <div className="animalContainer">
             <h2>{animal.name}</h2>
-            <img src={animal.imageUrl} alt={animal.shortDescription} onClick={handleShowDetails} onError={imgError}/>
+            <img src={animal.imageUrl} alt={animal.shortDescription} onClick={handleShowDetails} onError={useImgError}/>
             <p className="animalText">{animal.shortDescription}</p>
         </div>
     </>
